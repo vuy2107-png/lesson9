@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<button onclick="checkWord()">Kiểm tra từ đối xứng</button>
 </body>
+<script>
+    function isPalindrome(str) {
+        str = str.toLowerCase().replace(/\s/g, "");
+        let reversed = str.split("").reverse().join("");
+        return str === reversed;
+    }
+
+    function checkWord() {
+        let word = prompt("Nhập một từ hoặc chuỗi:");
+        if (isPalindrome(word)) {
+            alert("'" + word + "' là từ đối xứng!");
+        } else {
+            alert("'" + word + "' không phải là từ đối xứng!");
+        }
+    }
+</script>
 </html>
