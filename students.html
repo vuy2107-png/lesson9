@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sinh viên</title>
+</head>
+<body>
+<h1>Danh sách sinh viên</h1>
+<div id="studentTable"></div>
+<script>
+    class Student {
+        constructor(name = "No Name", age = 0, studentId = "Unknown") {
+            this.name = name;
+            this.age = age;
+            this.studentId = studentId;
+        }
+
+        displayInfo() {
+            return `Tên: ${this.name}, Tuổi: ${this.age}, MSSV: ${this.studentId}`;
+        }
+    }
+
+    let s1 = new Student("Vũ Ngọc Duy", 22, "SV001");
+    let s2 = new Student("Lương Anh Huy", 21, "SV002");
+    let s3 = new Student("Nguyễn Hoàng Tuấn Anh", 18, "SV003");
+
+    let studentList = [s1, s2, s3, s3];
+
+    function renderStudentTable(studentList) {
+        let html = `
+        <table border="1" cellspacing="0" cellpadding="6">
+          <tr>
+            <th>Họ và Tên</th>
+            <th>Tuổi</th>
+            <th>MSSV</th>
+          </tr>
+        `;
+        studentList.forEach(st => {
+            html += `
+             <tr>
+            <td>${st.name}</td>
+            <td>${st.age}</td>
+            <td>${st.studentId}</td>
+          </tr>
+            `;
+        });
+        html += `</table>`;
+        document.getElementById("studentTable").innerHTML = html;
+    }
+    renderStudentTable(studentList);
+</script>
+</body>
+</html>
