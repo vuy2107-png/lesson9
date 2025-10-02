@@ -1,10 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<button onclick="calculationSquare()">Bài 1</button>
+<button onclick="circleArea()">Bài 2</button>
+<button onclick="calculateFactorial()">Bài 3</button>
+<button onclick="checkChar()">Bài 4</button>
+<button onclick="checkMin()">Bài 5</button>
+<button onclick="checkNumber()">Bài 6</button>
+<button onclick="swapNumbers()">Bài 7</button>
+<button onclick="reverseNumbers()">Bài 8</button>
+<button onclick="checkChars()">Kiểm tra ký tự</button>
+<script>
+    // Hàm tính bình phương (dùng lại cho nhiều chỗ)
+    function square(x) {
+        return x * x;
+    }
+
+    // Bài 1: Bình phương
+    function calculationSquare() {
+        let number = Number(prompt("Nhập một số:"));
+        alert("Bình phương là: " + square(number));
+    }
+
+    // Bài 2: Diện tích hình tròn
+    function circleArea() {
+        let radius = Number(prompt("Nhập bán kính:"));
+        alert("Diện tích hình tròn là: " + (square(radius) * Math.PI));
+    }
+
+    // Bài 3: Tính giai thừa
+    function factorial(n) {
+        if (n < 0) return "Không có giai thừa cho số âm";
+        let result = 1;
+        for (let i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    function calculateFactorial() {
+        let num = parseInt(prompt("Nhập số nguyên:"));
+        alert("Giai thừa của " + num + " là: " + factorial(num));
+    }
+
+    // Bài 4: Kiểm tra ký tự số
+    function isDigit(char) {
+        return char >= '0' && char <= '9';
+    }
+    function checkChar() {
+        let input = prompt("Nhập một ký tự:");
+        if (isDigit(input)) {
+            alert(input + " là ký tự số");
+        } else {
+            alert(input + " không phải là ký tự số");
+        }
+    }
+
+    // Bài 5: Tìm số nhỏ nhất
+    function minOfThree(a, b, c) {
+        return Math.min(a, b, c);
+    }
+
+    function checkMin() {
+        let x = parseInt(prompt("Nhập số thứ 1:"));
+        let y = parseInt(prompt("Nhập số thứ 2:"));
+        let z = parseInt(prompt("Nhập số thứ 3:"));
+        alert("Số nhỏ nhất là: " + minOfThree(x, y, z));
+    }
+
+    // Bài 6: Kiểm tra số nguyên dương
+    function isPositiveInteger(n) {
+        return n > 0 && n % 1 === 0;
+    }
+
+    function checkNumber() {
+        let num = Number(prompt("Nhập một số:"));
+        alert("Kết quả: " + isPositiveInteger(num));
+    }
+
+    // Bài 7: Đổi chỗ 2 số
+    function swap(a, b) {
+        let temp = a;
+        a = b;
+        b = temp;
+        return [a, b];
+    }
+
+    function swapNumbers() {
+        let x = Number(prompt("Nhập số thứ nhất:"));
+        let y = Number(prompt("Nhập số thứ hai:"));
+
+        let result = swap(x, y);
+        alert("Sau khi đổi chỗ: " + result[0] + " và " + result[1]);
+    }
+
+    // Bài 8: Đảo ngược mảng
+    function reverseArray(arr) {
+        let newArr = [];
+        for (let i = arr.length - 1; i >= 0; i--) {
+            newArr.push(arr[i]);
+        }
+        return newArr;
+    }
+
+    function reverseNumbers() {
+        let input = prompt("Nhập các số, cách nhau bằng dấu phẩy:");
+        let arr = input.split(",").map(Number);
+        let reversed = reverseArray(arr);
+        alert("Mảng sau khi đảo ngược: " + reversed.join(", "));
+    }
+
+    // Bài 9: Kiểm tra và đếm số lần xuất hiện ký tự
+    function countChar(arr, char) {
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === char) {
+                count++;
+            }
+        }
+        return count > 0 ? count : -1;
+    }
+
+    function checkChars() {
+        let input = prompt("Nhập mảng ký tự (cách nhau bằng dấu phẩy):");
+        let arr = input.split(",");
+        let char = prompt("Nhập ký tự cần kiểm tra:");
+        let result = countChar(arr, char);
+        if (result === -1) {
+            alert("Ký tự '" + char + "' không có trong mảng.");
+        } else {
+            alert("Ký tự '" + char + "' xuất hiện " + result + " lần.");
+        }
+    }
+</script>
 </body>
 </html>
